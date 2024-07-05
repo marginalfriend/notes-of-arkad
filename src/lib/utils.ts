@@ -41,3 +41,10 @@ export function validateCashflowForm(formData: FormData) {
 		return result
 	}
 }
+
+export const rupiahConverter = (amount:number) => {
+	return new Intl.NumberFormat('id-ID', {
+		style: 'currency',
+		currency: 'IDR'
+	}).format(amount)
+}
