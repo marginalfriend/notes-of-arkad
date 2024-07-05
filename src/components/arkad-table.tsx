@@ -1,4 +1,4 @@
-import { TableData } from "../custom-types";
+import { TableData } from "../lib/custom-types";
 import {
   TableBody,
   Table,
@@ -31,7 +31,11 @@ export function ArkadTable({ data }: { data: TableData[] }) {
                 <TableCell>{data.subject}</TableCell>
                 <TableCell>{data.amount}</TableCell>
                 <TableCell>{data.status}</TableCell>
-                <TableCell>{data.date.toLocaleDateString('en-US', {dateStyle: 'medium'})}</TableCell>
+                <TableCell>
+                  {data.date.toLocaleDateString("en-US", {
+                    dateStyle: "medium",
+                  })}
+                </TableCell>
               </TableRow>
             );
           })}

@@ -1,4 +1,5 @@
-import { Status, TransactionType } from "../custom-types";
+import { useId } from "react";
+import { Status, TransactionType } from "../lib/custom-types";
 
 export default function IncomeForm() {
   return (
@@ -65,6 +66,15 @@ export default function IncomeForm() {
             </select>
           </div>
         </div>
+
+				<input type="hidden" name="id" value={useId()} />
+
+        <button
+          type="submit"
+          className="w-full bg-slate-300 hover:bg-slate-400 py-1 mt-4"
+        >
+          Submit
+        </button>
       </div>
     </form>
   );

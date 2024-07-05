@@ -1,4 +1,5 @@
 export type TableData = {
+	id: string;
 	description: string,
 	subject: string,
 	amount: number,
