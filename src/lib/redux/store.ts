@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import cashflowReducer from "./cashflowSlice";
+import authReducer from "./authSlice"
 
 // React Redux: Store Set Up
 export const store = configureStore({
 	reducer: {
-		cashflow: cashflowReducer
+		cashflow: cashflowReducer,
+		auth: authReducer
 	}
 })
 
