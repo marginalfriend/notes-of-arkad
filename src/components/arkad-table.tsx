@@ -11,7 +11,7 @@ import {
 
 export function ArkadTable({ data }: { data: TableData[] }) {
   return (
-    <div className="col-span-3 border">
+    <div className="col-span-3 border h-screen overflow-x-auto">
       <Table>
         <TableCaption>Your Financial Activity</TableCaption>
         <TableHeader>
@@ -20,6 +20,7 @@ export function ArkadTable({ data }: { data: TableData[] }) {
             <TableHead>Subject</TableHead>
             <TableHead>Amount</TableHead>
             <TableHead>Status</TableHead>
+            <TableHead>Date</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -30,6 +31,7 @@ export function ArkadTable({ data }: { data: TableData[] }) {
                 <TableCell>{data.subject}</TableCell>
                 <TableCell>{data.amount}</TableCell>
                 <TableCell>{data.status}</TableCell>
+                <TableCell>{data.date.toLocaleDateString('en-US', {dateStyle: 'medium'})}</TableCell>
               </TableRow>
             );
           })}

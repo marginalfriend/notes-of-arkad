@@ -7,11 +7,26 @@ export default function App() {
 			description: "Eat Out",
 			subject: "McDonalds",
 			amount: 50000,
-			status: Status.Paid
+			status: Status.Paid,
+			date: new Date()
+		},
+		{
+			description: "Eat Out",
+			subject: "McDonalds",
+			amount: 50000,
+			status: Status.Paid,
+			date: new Date()
+		},
+		{
+			description: "Eat Out",
+			subject: "McDonalds",
+			amount: 50000,
+			status: Status.Paid,
+			date: new Date()
 		}
 	] 
   return (
-    <div className="grid grid-cols-5 gap-4">
+    <div className="grid grid-cols-5 gap-4 p-4">
       <ArkadTable data={dummy} />
     </div>
   );

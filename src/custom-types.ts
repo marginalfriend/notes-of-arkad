@@ -2,7 +2,8 @@ export type TableData = {
 	description: string,
 	subject: string,
 	amount: number,
-	status:Status
+	status:Status,
+	date: Date,
 }
 
 export enum Status {
