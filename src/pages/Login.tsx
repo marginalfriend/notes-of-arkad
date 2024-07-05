@@ -1,22 +1,22 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { AuthState, setAuthState } from "../lib/redux/authSlice";
+import { useDispatch } from "react-redux";
+import { setAuthState } from "../lib/redux/authSlice";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  // const isLoggedIn = useSelector((state: AuthState) => state.isLoggedIn);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleLogin = (e: React.SyntheticEvent) => {
     e.preventDefault();
     if (username == "admin" && password == "admin123") {
-      dispatch(setAuthState({ isLoggedIn: true, user: { name: username } }));
+      dispatch(setAuthState({ isLoggedIn: true, user: username }));
 
       localStorage.setItem("isLoggedIn", "true");
-      localStorage.setItem("user", JSON.stringify({ name: username }));
+      localStorage.setItem("user", JSON.stringify(username));
+			
       navigate("/");
     } else {
       alert("Failed to authenticate");

@@ -2,12 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export interface AuthState {
 	isLoggedIn: boolean,
-	user: { name: null, }
+	user: string
 }
 
 const initialState = {
 	isLoggedIn: false,
-	user: { name: null }
+	user: ""
 } as AuthState
 
 const authSlice = createSlice({
@@ -17,10 +17,10 @@ const authSlice = createSlice({
 		setAuthState: (state, action) => {
 			const { isLoggedIn, user } = action.payload
 			state.isLoggedIn = isLoggedIn
-			state.user = isLoggedIn ? user : null
+			state.user = isLoggedIn ? user : ""
 		},
 		logout: (state) => {
-			state.user = { name: null }
+			state.user = ""
 			state.isLoggedIn = false
 		}
 	}
