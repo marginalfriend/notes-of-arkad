@@ -1,6 +1,6 @@
-import { CashflowTable } from "./components/CashflowTable";
-import CashflowForm from "./components/CashflowForm";
-import { useAppSelector } from "./lib/redux/hooks";
+import { CashflowTable } from "../components/CashflowTable";
+import CashflowForm from "../components/CashflowForm";
+import { useAppSelector } from "../lib/hooks/hooks";
 
 export default function App() {
   const data = useAppSelector((state) => state.cashflow);

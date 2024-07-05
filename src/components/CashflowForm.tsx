@@ -1,6 +1,6 @@
 import { useId } from "react";
 import { Status, TransactionType } from "../lib/custom-types";
-import { useAppDispatch } from "../lib/redux/hooks";
+import { useAppDispatch } from "../lib/hooks/hooks";
 import { addCashflow } from "../lib/redux/cashflowSlice";
 import { AppDispatch } from "../lib/redux/store";
 import { init } from "@paralleldrive/cuid2";
@@ -69,7 +69,11 @@ const CashflowForm = () => {
         <div className="grid grid-cols-2 gap-2">
           <div className="flex flex-col gap-1">
             <label className="text-sm">Type</label>
-            <select name="type" id="type" className="border  px-2 py-2 bg-slate-100 text-sm">
+            <select
+              name="type"
+              id="type"
+              className="border  px-2 py-2 bg-slate-100 text-sm"
+            >
               <option value={TransactionType.Expense}>
                 {TransactionType.Expense}
               </option>
@@ -81,7 +85,11 @@ const CashflowForm = () => {
 
           <div className="flex flex-col gap-1">
             <label className="text-sm">Status</label>
-            <select name="status" id="type" className="border  px-2 py-2 bg-slate-100 text-sm">
+            <select
+              name="status"
+              id="type"
+              className="border  px-2 py-2 bg-slate-100 text-sm"
+            >
               <option value={Status.Paid}>{Status.Paid}</option>
               <option value={Status.Pending}>{Status.Pending}</option>
             </select>
