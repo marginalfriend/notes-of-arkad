@@ -10,3 +10,8 @@ export enum Status {
 	Paid = "Paid",
 	Pending = "Pending",
 }
+
+export enum TransactionType {
+	Income = "Income",
+	Expense = "Expense",
+}
