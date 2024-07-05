@@ -1,9 +1,30 @@
 import { useId } from "react";
 import { Status, TransactionType } from "../lib/custom-types";
+import { useAppDispatch } from "../lib/redux/hooks";
+import { addCashflow } from "../lib/redux/cashflowSlice";
+import { AppDispatch } from "../lib/redux/store";
+import { init } from "@paralleldrive/cuid2";
+import { validateCashflowForm } from "../lib/utils";
 
-export default function IncomeForm() {
+const CashflowForm = () => {
+  const dispatch: AppDispatch = useAppDispatch();
+
+  const handleSubmit = (event: React.SyntheticEvent): void => {
+    event.preventDefault();
+
+    const formData = new FormData(event.target as HTMLFormElement);
+    const data = validateCashflowForm(formData);
+
+    if (!data) return;
+
+    const id = init();
+    data.id = id();
+
+    dispatch(addCashflow(data));
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className="w-full border p-2 flex flex-col gap-2">
         <div className="flex flex-col gap-1">
           <label>Description</label>
@@ -67,7 +88,7 @@ export default function IncomeForm() {
           </div>
         </div>
 
-				<input type="hidden" name="id" value={useId()} />
+        <input type="hidden" name="id" value={useId()} />
 
         <button
           type="submit"
@@ -78,4 +99,6 @@ export default function IncomeForm() {
       </div>
     </form>
   );
-}
+};
+
+export default CashflowForm;

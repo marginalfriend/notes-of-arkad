@@ -9,7 +9,7 @@ import {
   TableCell,
 } from "./ui/table";
 
-export function ArkadTable({ data }: { data: TableData[] }) {
+export function CashflowTable({ data }: { data: TableData[] }) {
   return (
     <div className="col-span-3 border h-screen overflow-x-auto">
       <Table>
@@ -24,18 +24,16 @@ export function ArkadTable({ data }: { data: TableData[] }) {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {data.map((data) => {
+          {data.map((d) => {
             return (
-              <TableRow>
-                <TableCell>{data.description}</TableCell>
-                <TableCell>{data.subject}</TableCell>
-                <TableCell>{data.amount}</TableCell>
-                <TableCell>{data.status}</TableCell>
-                <TableCell>
-                  {data.date.toLocaleDateString("en-US", {
-                    dateStyle: "medium",
-                  })}
-                </TableCell>
+              <TableRow key={d.subject}>
+                <TableCell>{d.description}</TableCell>
+                <TableCell>{d.subject}</TableCell>
+                <TableCell>{d.amount}</TableCell>
+                <TableCell>{d.status}</TableCell>
+                {/* <TableCell>
+                  {d.date.toString()}
+                </TableCell> */}
               </TableRow>
             );
           })}

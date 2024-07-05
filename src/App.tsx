@@ -1,34 +1,12 @@
-import { ArkadTable } from "./components/arkad-table";
-import IncomeForm from "./components/income-form";
-import { Status, TableData } from "./lib/custom-types";
+import { ArkadTable } from "./components/CashflowTable";
+import IncomeForm from "./components/CashflowForm";
+import { useAppSelector } from "./lib/redux/hooks";
 
 export default function App() {
-  const dummy: TableData[] = [
-    {
-      description: "Eat Out",
-      subject: "McDonalds",
-      amount: 50000,
-      status: Status.Paid,
-      date: new Date(),
-    },
-    {
-      description: "Eat Out",
-      subject: "McDonalds",
-      amount: 50000,
-      status: Status.Paid,
-      date: new Date(),
-    },
-    {
-      description: "Eat Out",
-      subject: "McDonalds",
-      amount: 50000,
-      status: Status.Paid,
-      date: new Date(),
-    },
-  ];
+  const data = useAppSelector((state) => state.cashflow);
   return (
     <div className="grid grid-cols-5 gap-4 p-4">
-      <ArkadTable data={dummy} />
+      <ArkadTable data={data.cashflow} />
       <div className="col-span-2">
         <IncomeForm />
       </div>

@@ -1,9 +1,10 @@
 export type TableData = {
-	id: string;
+	id?: string;
 	description: string,
 	subject: string,
 	amount: number,
-	status:Status,
+	status:string,
+	type: string,
 	date: Date,
 }
 

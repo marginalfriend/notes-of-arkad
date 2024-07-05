@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { TableData } from "./custom-types"
+import { TableData } from "../custom-types"
 
 export interface TableDataState {
 	cashflow: TableData[]
