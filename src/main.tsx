@@ -5,13 +5,13 @@ import "./app/globals.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./layout.tsx";
 
-const router = createBrowserRouter([
+export const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
     children: [
       {
-        path: "dashboard",
+        path: "/",
         element: <App />,
       },
     ],
